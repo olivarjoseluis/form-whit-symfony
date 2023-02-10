@@ -1,0 +1,12 @@
+@import 'bootstrap';
+
+:root {
+    --clear: #F0EEED;
+    --secondary: #609EA2;
+    --primary: #C92C6D;
+    --dark: #332C39;
+}
+
+body {
+    background-color: var(--clear);
+}
