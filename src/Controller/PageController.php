@@ -15,6 +15,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PageController extends AbstractController
 {
+    #[Route('/', name: 'index', methods: ['GET'])]
+    public function index(): Response
+    {
+        return $this->render('page/index.html.twig');
+    }
+
     #[Route('/contacts-v1', name: 'contacts-v1', methods: ['GET', 'POST'])]
     public function contactsV1(Request $request): Response
     {

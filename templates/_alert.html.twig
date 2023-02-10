@@ -1,0 +1,13 @@
+{# Read a type  #}
+{# {% for message in app.flashes('success') %}
+																<div class="alert alert-success">{{message}}</div>
+															{% endfor %}
+															{% for message in app.flashes('info') %}
+																<div class="alert alert-info">{{message}}</div>
+															{% endfor %} #}
+{# All messages #}
+	{% for type, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert alert-{{type}}"> {{message}}</div>
+	{% endfor %}
+{% endfor %}

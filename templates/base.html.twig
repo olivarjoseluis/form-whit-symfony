@@ -16,24 +16,25 @@
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
+
+		<style>
+			.example-wrapper {
+				margin: 1em auto;
+				max-width: 800px;
+				width: 95%;
+				font: 18px / 1.5 sans-serif;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="container py-5">
-			{# Read a type  #}
-			{# {% for message in app.flashes('success') %}
-										<div class="alert alert-success">{{message}}</div>
-									{% endfor %}
-									{% for message in app.flashes('info') %}
-										<div class="alert alert-info">{{message}}</div>
-									{% endfor %} #}
-			{# All messages #}
-				{% for type, messages in app.flashes %}
-					{% for message in messages %}
-						<div class="alert alert-{{type}}"> {{message}}</div>
-				{% endfor %}
-			{% endfor %}
+		{% include '_nav.html.twig' %}
 
-			{% block body %}{% endblock %}
+		<div class="container py-5">
+			{% include '_alert.html.twig' %}
 		</div>
-	</body>
-</html></body></html>
+		<div class="example-wrapper"> 
+    {% block body %}{% endblock %}
+			</div>
+		</body>
+	</html>
+</div></body></html></body></html>
