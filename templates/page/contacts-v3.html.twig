@@ -21,7 +21,7 @@
 		<h1>Form v3! ✅</h1>
 		{# {{form(form)}} #}
 		{% form_theme form 'bootstrap_5_horizontal_layout.html.twig' %}
-		{{form_start(form,{'action':'process','method':'GET','attr':{'novalidate':'novalidate'}})}}
+		{{form_start(form,{'method':'POST','attr':{'novalidate':'novalidate'}})}}
 		{{form_errors(form)}}
 		<div>
 			{{form_errors(form.message)}}
