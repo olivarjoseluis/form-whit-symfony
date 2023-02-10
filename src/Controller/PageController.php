@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +31,20 @@ class PageController extends AbstractController
             dd($form->getData(), $request);
         }
         return $this->render('page/contacts-v1.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/contacts-v2', methods: ['GET', 'POST'])]
+    public function contactsV2(Request $request): Response
+    {
+        $form = $this->createForm(ContactType::class);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            dd($form->getData(), $request);
+        }
+        return $this->render('page/contacts-v2.html.twig', [
             'form' => $form->createView(),
         ]);
     }
