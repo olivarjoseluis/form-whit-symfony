@@ -2,15 +2,20 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Post;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+//use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class PostType extends AbstractType
 {
@@ -19,9 +24,10 @@ class PostType extends AbstractType
     $builder
       ->add(
         'category',
-        ChoiceType::class,
+        EntityType::class,
         [
-          'choices' => ['PHP' => 'php', 'Laravel' => 'laravel', 'Symfony' => 'symfony'],
+          'class' => Category::class,
+          /* 'choices' => ['PHP' => 'php', 'Laravel' => 'laravel', 'Symfony' => 'symfony'], */
           'placeholder' => 'Select a Category',
           'label' => 'Categories'
         ]
