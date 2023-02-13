@@ -10,3 +10,7 @@
 body {
     background-color: var(--clear);
 }
+
+.card{
+    min-height: 170px;
+}
